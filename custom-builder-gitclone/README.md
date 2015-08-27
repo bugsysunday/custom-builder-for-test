@@ -1,4 +1,4 @@
-custom-builder-nak3
+custom-builder-gitclone
 =============
 
 This custome builder image is just for git clone test.
