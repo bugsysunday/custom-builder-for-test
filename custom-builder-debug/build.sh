@@ -54,7 +54,13 @@ if [ -n "${SOURCE_REF}" ]; then
   echo "DEBUG:"
   echo "DEBUG: Check source code"
   echo "DEBUG: ------------------------"
+  echo "DEBUG:"
+  echo "DEBUG: git commit log:"
+  echo "DEBUG:"
   git log -n 1 --format=%H
+  echo "DEBUG:"
+  echo "DEBUG: files in source code top directory"
+  echo "DEBUG:"
   ls -l
   echo "DEBUG:"
 
