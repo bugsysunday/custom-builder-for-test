@@ -9,7 +9,13 @@ Quick start
 Just run
 
 ~~~
-oc create -f https://raw.githubusercontent.com/nak3/custom-builder-for-test/master/custom-builder-c-make/assets/hell-c.json
+oc create -f https://raw.githubusercontent.com/nak3/custom-builder-for-test/master/custom-builder-c-make/assets/hello-c.json
+~~~
+
+(OSE v3.0.1.0)
+
+~~~
+oc create -f https://raw.githubusercontent.com/nak3/custom-builder-for-test/master/custom-builder-c-make/assets/hello-c-v3010.json
 ~~~
 
 Usage

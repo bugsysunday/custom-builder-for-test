@@ -1,0 +1,193 @@
+{
+    "apiVersion": "v1", 
+    "items": [
+        {
+            "apiVersion": "v1", 
+            "kind": "ImageStream", 
+            "metadata": {
+                "creationTimestamp": null, 
+                "labels": {
+                    "app": "hello-c"
+                }, 
+                "name": "custom-builder-c-make"
+            }, 
+            "spec": {
+                "dockerImageRepository": "nak3/custom-builder-c-make"
+            }, 
+            "status": {
+                "dockerImageRepository": ""
+            }
+        }, 
+        {
+            "apiVersion": "v1", 
+            "kind": "ImageStream", 
+            "metadata": {
+                "creationTimestamp": null, 
+                "labels": {
+                    "app": "hello-c"
+                }, 
+                "name": "hello-c"
+            }, 
+            "spec": {}, 
+            "status": {
+                "dockerImageRepository": ""
+            }
+        }, 
+        {
+            "apiVersion": "v1", 
+            "kind": "BuildConfig", 
+            "metadata": {
+                "creationTimestamp": null, 
+                "labels": {
+                    "app": "hello-c"
+                }, 
+                "name": "hello-c"
+            }, 
+            "spec": {
+                "output": {
+                    "to": {
+                        "kind": "ImageStreamTag", 
+                        "name": "hello-c:latest"
+                    }
+                }, 
+                "resources": {}, 
+                "source": {
+                    "git": {
+                        "ref": "master", 
+                        "uri": "https://github.com/nak3/hello-c.git"
+                    }, 
+                    "type": "Git"
+                }, 
+                "strategy": {
+                    "customStrategy": {
+                        "env": [
+                            {
+                                "name": "OPENSHIFT_CUSTOM_BUILD_BASE_IMAGE", 
+                                "value": "nak3/custom-builder-c-make"
+                            }
+                        ], 
+                        "exposeDockerSocket": true, 
+                        "from": {
+                            "kind": "ImageStreamTag", 
+                            "name": "custom-builder-c-make:latest"
+                        }
+                    }, 
+                    "type": "Custom"
+                }, 
+                "triggers": [
+                    {
+                        "github": {
+                            "secret": "xlZGVwPX7dym_DdsLjBm"
+                        }, 
+                        "type": "GitHub"
+                    }, 
+                    {
+                        "generic": {
+                            "secret": "-KzfO9k_cYlIbd5PC1UF"
+                        }, 
+                        "type": "Generic"
+                    }, 
+                    {
+                        "imageChange": {}, 
+                        "type": "ImageChange"
+                    }
+                ]
+            }, 
+            "status": {
+                "lastVersion": 0
+            }
+        }, 
+        {
+            "apiVersion": "v1", 
+            "kind": "DeploymentConfig", 
+            "metadata": {
+                "creationTimestamp": null, 
+                "labels": {
+                    "app": "hello-c"
+                }, 
+                "name": "hello-c"
+            }, 
+            "spec": {
+                "replicas": 1, 
+                "selector": {
+                    "deploymentconfig": "hello-c"
+                }, 
+                "strategy": {
+                    "resources": {}
+                }, 
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null, 
+                        "labels": {
+                            "deploymentconfig": "hello-c"
+                        }
+                    }, 
+                    "spec": {
+                        "containers": [
+                            {
+                                "image": "library/hello-c:latest", 
+                                "name": "hello-c", 
+                                "ports": [
+                                    {
+                                        "containerPort": 8080, 
+                                        "protocol": "TCP"
+                                    }
+                                ], 
+                                "resources": {}
+                            }
+                        ]
+                    }
+                }, 
+                "triggers": [
+                    {
+                        "type": "ConfigChange"
+                    }, 
+                    {
+                        "imageChangeParams": {
+                            "automatic": true, 
+                            "containerNames": [
+                                "hello-c"
+                            ], 
+                            "from": {
+                                "kind": "ImageStreamTag", 
+                                "name": "hello-c:latest"
+                            }
+                        }, 
+                        "type": "ImageChange"
+                    }
+                ]
+            }, 
+            "status": {}
+        }, 
+        {
+            "apiVersion": "v1", 
+            "kind": "Service", 
+            "metadata": {
+                "creationTimestamp": null, 
+                "labels": {
+                    "app": "hello-c"
+                }, 
+                "name": "hello-c"
+            }, 
+            "spec": {
+                "ports": [
+                    {
+                        "name": "8080-tcp", 
+                        "nodePort": 0, 
+                        "port": 8080, 
+                        "protocol": "TCP", 
+                        "targetPort": 8080
+                    }
+                ], 
+                "selector": {
+                    "deploymentconfig": "hello-c"
+                }
+            }, 
+            "status": {
+                "loadBalancer": {}
+            }
+        }
+    ], 
+    "kind": "List", 
+    "metadata": {}
+}
