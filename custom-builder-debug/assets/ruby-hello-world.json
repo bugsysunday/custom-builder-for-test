@@ -7,7 +7,7 @@
             "metadata": {
                 "creationTimestamp": null, 
                 "labels": {
-                    "app": "helloworld-v3"
+                    "app": "ruby-hello-world"
                 }, 
                 "name": "custom-builder-debug"
             }, 
@@ -24,9 +24,9 @@
             "metadata": {
                 "creationTimestamp": null, 
                 "labels": {
-                    "app": "helloworld-v3"
+                    "app": "ruby-hello-world"
                 }, 
-                "name": "helloworld-v3"
+                "name": "ruby-hello-world"
             }, 
             "spec": {}, 
             "status": {
@@ -39,22 +39,22 @@
             "metadata": {
                 "creationTimestamp": null, 
                 "labels": {
-                    "app": "helloworld-v3"
+                    "app": "ruby-hello-world"
                 }, 
-                "name": "helloworld-v3"
+                "name": "ruby-hello-world"
             }, 
             "spec": {
                 "output": {
                     "to": {
                         "kind": "ImageStreamTag", 
-                        "name": "helloworld-v3:latest"
+                        "name": "ruby-hello-world:latest"
                     }
                 }, 
                 "resources": {}, 
                 "source": {
                     "git": {
                         "ref": "master", 
-                        "uri": "https://github.com/nak3/helloworld-v3.git"
+                        "uri": "https://github.com/openshift/ruby-hello-world.git"
                     }, 
                     "type": "Git"
                 }, 
@@ -103,14 +103,14 @@
             "metadata": {
                 "creationTimestamp": null, 
                 "labels": {
-                    "app": "helloworld-v3"
+                    "app": "ruby-hello-world"
                 }, 
-                "name": "helloworld-v3"
+                "name": "ruby-hello-world"
             }, 
             "spec": {
                 "replicas": 1, 
                 "selector": {
-                    "deploymentconfig": "helloworld-v3"
+                    "deploymentconfig": "ruby-hello-world"
                 }, 
                 "strategy": {
                     "resources": {}
@@ -119,14 +119,14 @@
                     "metadata": {
                         "creationTimestamp": null, 
                         "labels": {
-                            "deploymentconfig": "helloworld-v3"
+                            "deploymentconfig": "ruby-hello-world"
                         }
                     }, 
                     "spec": {
                         "containers": [
                             {
-                                "image": "library/helloworld-v3:latest", 
-                                "name": "helloworld-v3", 
+                                "image": "library/ruby-hello-world:latest", 
+                                "name": "ruby-hello-world", 
                                 "ports": [
                                     {
                                         "containerPort": 8080, 
@@ -146,11 +146,11 @@
                         "imageChangeParams": {
                             "automatic": true, 
                             "containerNames": [
-                                "helloworld-v3"
+                                "ruby-hello-world"
                             ], 
                             "from": {
                                 "kind": "ImageStreamTag", 
-                                "name": "helloworld-v3:latest"
+                                "name": "ruby-hello-world:latest"
                             }
                         }, 
                         "type": "ImageChange"
@@ -165,9 +165,9 @@
             "metadata": {
                 "creationTimestamp": null, 
                 "labels": {
-                    "app": "helloworld-v3"
+                    "app": "ruby-hello-world"
                 }, 
-                "name": "helloworld-v3"
+                "name": "ruby-hello-world"
             }, 
             "spec": {
                 "ports": [
@@ -180,7 +180,7 @@
                     }
                 ], 
                 "selector": {
-                    "deploymentconfig": "helloworld-v3"
+                    "deploymentconfig": "ruby-hello-world"
                 }
             }, 
             "status": {

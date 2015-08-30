@@ -37,7 +37,7 @@ if [ -n "${SOURCE_REF}" ]; then
   echo "DEBUG:"
   echo "DEBUG: git clone with TRACE logs"
   echo "DEBUG: ------------------------"
-  GIT_CURL_VERBOSE=1 GIT_TRACE=1 git clone --recursive "${SOURCE_REPOSITORY}" "${BUILD_DIR}"
+  GIT_CURL_VERBOSE=1 git clone --recursive "${SOURCE_REPOSITORY}" "${BUILD_DIR}"
   echo "DEBUG:"
   
   if [ $? != 0 ]; then
@@ -50,6 +50,14 @@ if [ -n "${SOURCE_REF}" ]; then
     echo "Error trying to checkout branch: ${SOURCE_REF}"
     exit 1
   fi
+
+  echo "DEBUG:"
+  echo "DEBUG: Check source code"
+  echo "DEBUG: ------------------------"
+  git log -n 1 --format=%H
+  ls -l
+  echo "DEBUG:"
+
   popd
   docker build --rm -t "${TAG}" "${BUILD_DIR}"
 else
