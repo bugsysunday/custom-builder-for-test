@@ -1,7 +1,16 @@
 custom-builder-c-make
 =============
 
-This custome builder image is just for git clone test.
+custom-builder-c-make is sample custom builder to build c application on OpenShift v3.
+
+Quick start
+---
+
+Just run
+
+~~~
+oc create -f https://raw.githubusercontent.com/nak3/custom-builder-for-test/master/custom-builder-c-make/assets/hell-c.json
+~~~
 
 Usage
 ---
