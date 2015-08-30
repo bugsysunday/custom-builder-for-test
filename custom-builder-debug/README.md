@@ -12,6 +12,11 @@ Just run
 oc create -f https://raw.githubusercontent.com/nak3/custom-builder-for-test/master/custom-builder-debug/assets/ruby-hello-world.json
 ~~~
 
+Sample output
+---
+
+Check [here](./example/build-log-sample)
+
 Usage
 ---
 

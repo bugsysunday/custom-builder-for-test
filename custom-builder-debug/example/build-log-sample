@@ -1,0 +1,265 @@
+DEBUG:
+DEBUG: Output environment value
+DEBUG: ------------------------
+SOURCE_URI=https://github.com/openshift/ruby-hello-world.git
+OPENSHIFT_CUSTOM_BUILD_BASE_IMAGE=nak3/custom-builder-debug@sha256:a4c85322eaf87040e71fe7b8b33dec504252924562fc3d09ecde492ae73284f6
+HOSTNAME=ruby-hello-world-1-build
+RUBY_HELLO_WORLD_SERVICE_PORT_8080_TCP=8080
+KUBERNETES_PORT_443_TCP_PORT=443
+KUBERNETES_PORT=tcp://172.30.0.1:443
+KUBERNETES_SERVICE_PORT=443
+RUBY_HELLO_WORLD_PORT_8080_TCP_ADDR=172.30.24.15
+KUBERNETES_SERVICE_HOST=172.30.0.1
+ROUTER_SERVICE_PORT_80_TCP=80
+RUBY_HELLO_WORLD_PORT_8080_TCP_PORT=8080
+PUSH_DOCKERCFG_PATH=/var/run/secrets/openshift.io/push/.dockercfg
+ROUTER_PORT_80_TCP_PROTO=tcp
+RUBY_HELLO_WORLD_SERVICE_HOST=172.30.24.15
+OUTPUT_IMAGE=default/ruby-hello-world:latest
+ROUTER_SERVICE_PORT=80
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+DOCKER_REGISTRY_PORT_5000_TCP_ADDR=172.30.194.91
+DOCKER_REGISTRY_PORT=tcp://172.30.194.91:5000
+DOCKER_REGISTRY_PORT_5000_TCP=tcp://172.30.194.91:5000
+ROUTER_SERVICE_HOST=172.30.76.56
+BUILD={"kind":"Build","apiVersion":"v1","metadata":{"name":"ruby-hello-world-1","namespace":"default","selfLink":"/oapi/v1/namespaces/default/builds/ruby-hello-world-1","uid":"717e5b42-4ef8-11e5-8e03-525400b5bdf9","resourceVersion":"330","creationTimestamp":"2015-08-30T09:21:06Z","labels":{"app":"ruby-hello-world","buildconfig":"ruby-hello-world"},"annotations":{"openshift.io/build.number":"1"}},"spec":{"serviceAccount":"builder","source":{"type":"Git","git":{"uri":"https://github.com/openshift/ruby-hello-world.git","ref":"master"}},"strategy":{"type":"Custom","customStrategy":{"from":{"kind":"DockerImage","name":"nak3/custom-builder-debug@sha256:a4c85322eaf87040e71fe7b8b33dec504252924562fc3d09ecde492ae73284f6"},"env":[{"name":"OPENSHIFT_CUSTOM_BUILD_BASE_IMAGE","value":"nak3/custom-builder-debug@sha256:a4c85322eaf87040e71fe7b8b33dec504252924562fc3d09ecde492ae73284f6"}],"exposeDockerSocket":true}},"output":{"to":{"kind":"DockerImage","name":"172.30.194.91:5000/default/ruby-hello-world:latest"},"pushSecret":{"name":"builder-dockercfg-imwon"}},"resources":{}},"status":{"phase":"Pending","config":{"kind":"BuildConfig","namespace":"default","name":"ruby-hello-world"}}}
+PWD=/
+RUBY_HELLO_WORLD_PORT_8080_TCP=tcp://172.30.24.15:8080
+RUBY_HELLO_WORLD_PORT=tcp://172.30.24.15:8080
+DOCKER_REGISTRY_SERVICE_HOST=172.30.194.91
+SOURCE_REF=master
+ROUTER_PORT_80_TCP_PORT=80
+DOCKER_REGISTRY_SERVICE_PORT=5000
+container_uuid=f5e53346-336a-dcf2-d6f5-fca2e00a4257
+DOCKER_REGISTRY_PORT_5000_TCP_PORT=5000
+SOURCE_REPOSITORY=https://github.com/openshift/ruby-hello-world.git
+SHLVL=1
+HOME=/root
+ROUTER_PORT_80_TCP=tcp://172.30.76.56:80
+KUBERNETES_PORT_443_TCP_PROTO=tcp
+DOCKER_SOCKET=/var/run/docker.sock
+DOCKER_REGISTRY_PORT_5000_TCP_PROTO=tcp
+RUBY_HELLO_WORLD_SERVICE_PORT=8080
+OUTPUT_REGISTRY=172.30.194.91:5000
+ROUTER_PORT_80_TCP_ADDR=172.30.76.56
+DOCKER_REGISTRY_SERVICE_PORT_5000_TCP=5000
+KUBERNETES_PORT_443_TCP_ADDR=172.30.0.1
+ROUTER_PORT=tcp://172.30.76.56:80
+KUBERNETES_PORT_443_TCP=tcp://172.30.0.1:443
+RUBY_HELLO_WORLD_PORT_8080_TCP_PROTO=tcp
+_=/usr/bin/env
+DEBUG:
+DEBUG:
+DEBUG: git clone with TRACE logs
+DEBUG: ------------------------
+Cloning into '/tmp/tmp.hGZXLKSFaOdocker-build'...
+* Couldn't find host github.com in the .netrc file; using defaults
+* About to connect() to github.com port 443 (#0)
+*   Trying 192.30.252.129...
+* Connected to github.com (192.30.252.129) port 443 (#0)
+* Initializing NSS with certpath: sql:/etc/pki/nssdb
+*   CAfile: /etc/pki/tls/certs/ca-bundle.crt
+  CApath: none
+* SSL connection using TLS_RSA_WITH_AES_128_CBC_SHA
+* Server certificate:
+* 	subject: CN=github.com,O="GitHub, Inc.",L=San Francisco,ST=California,C=US,postalCode=94107,STREET=548 4th Street,serialNumber=5157550,incorporationState=Delaware,incorporationCountry=US,businessCategory=Private Organization
+* 	start date: Apr 08 00:00:00 2014 GMT
+* 	expire date: Apr 12 12:00:00 2016 GMT
+* 	common name: github.com
+* 	issuer: CN=DigiCert SHA2 Extended Validation Server CA,OU=www.digicert.com,O=DigiCert Inc,C=US
+> GET /openshift/ruby-hello-world.git/info/refs?service=git-upload-pack HTTP/1.1
+User-Agent: git/1.8.3.1
+Host: github.com
+Accept: */*
+Accept-Encoding: gzip
+Pragma: no-cache
+
+< HTTP/1.1 200 OK
+< Server: GitHub Babel 2.0
+< Content-Type: application/x-git-upload-pack-advertisement
+< Transfer-Encoding: chunked
+< Expires: Fri, 01 Jan 1980 00:00:00 GMT
+< Pragma: no-cache
+< Cache-Control: no-cache, max-age=0, must-revalidate
+< Vary: Accept-Encoding
+< 
+* Connection #0 to host github.com left intact
+* Couldn't find host github.com in the .netrc file; using defaults
+* About to connect() to github.com port 443 (#1)
+*   Trying 192.30.252.129...
+* Connected to github.com (192.30.252.129) port 443 (#1)
+*   CAfile: /etc/pki/tls/certs/ca-bundle.crt
+  CApath: none
+* SSL connection using TLS_RSA_WITH_AES_128_CBC_SHA
+* Server certificate:
+* 	subject: CN=github.com,O="GitHub, Inc.",L=San Francisco,ST=California,C=US,postalCode=94107,STREET=548 4th Street,serialNumber=5157550,incorporationState=Delaware,incorporationCountry=US,businessCategory=Private Organization
+* 	start date: Apr 08 00:00:00 2014 GMT
+* 	expire date: Apr 12 12:00:00 2016 GMT
+* 	common name: github.com
+* 	issuer: CN=DigiCert SHA2 Extended Validation Server CA,OU=www.digicert.com,O=DigiCert Inc,C=US
+> POST /openshift/ruby-hello-world.git/git-upload-pack HTTP/1.1
+User-Agent: git/1.8.3.1
+Host: github.com
+Accept-Encoding: gzip
+Content-Type: application/x-git-upload-pack-request
+Accept: application/x-git-upload-pack-result
+Content-Length: 404
+
+* upload completely sent off: 404 out of 404 bytes
+< HTTP/1.1 200 OK
+< Server: GitHub Babel 2.0
+< Content-Type: application/x-git-upload-pack-result
+< Transfer-Encoding: chunked
+< Expires: Fri, 01 Jan 1980 00:00:00 GMT
+< Pragma: no-cache
+< Cache-Control: no-cache, max-age=0, must-revalidate
+< Vary: Accept-Encoding
+< 
+* Connection #1 to host github.com left intact
+DEBUG:
+/tmp/tmp.hGZXLKSFaOdocker-build /
+Already on 'master'
+DEBUG:
+DEBUG: Check source code
+DEBUG: ------------------------
+DEBUG:
+DEBUG: git commit log:
+DEBUG:
+65b3d6b82c299ac45ae8d1b698a2b233455b554d
+DEBUG:
+DEBUG: files in source code top directory
+DEBUG:
+total 48
+-rw-r--r--. 1 root root  273 Aug 30 09:21 Dockerfile
+-rw-r--r--. 1 root root   96 Aug 30 09:21 Gemfile
+-rw-r--r--. 1 root root  941 Aug 30 09:21 Gemfile.lock
+-rw-r--r--. 1 root root  182 Aug 30 09:21 README.md
+-rw-r--r--. 1 root root   98 Aug 30 09:21 Rakefile
+-rw-r--r--. 1 root root 1245 Aug 30 09:21 app.rb
+drwxr-xr-x. 2 root root 4096 Aug 30 09:21 config
+-rw-r--r--. 1 root root   52 Aug 30 09:21 config.ru
+drwxr-xr-x. 3 root root 4096 Aug 30 09:21 db
+-rw-r--r--. 1 root root   93 Aug 30 09:21 models.rb
+-rwxr-xr-x. 1 root root   35 Aug 30 09:21 run.sh
+drwxr-xr-x. 2 root root 4096 Aug 30 09:21 views
+DEBUG:
+/
+Sending build context to Docker daemon 116.7 kB
+Sending build context to Docker daemon 
+Step 0 : FROM openshift/ruby-20-centos7
+ ---> 48fc42bce0ac
+Step 1 : USER default
+ ---> Using cache
+ ---> dbafbd6913ff
+Step 2 : EXPOSE 8080
+ ---> Using cache
+ ---> a15700324907
+Step 3 : ENV RACK_ENV production
+ ---> Using cache
+ ---> 61259954a32e
+Step 4 : ENV RAILS_ENV production
+ ---> Using cache
+ ---> 88868ecf10ed
+Step 5 : COPY . /opt/app-root/src/
+ ---> e052a81ec07b
+Removing intermediate container e447676bff4c
+Step 6 : RUN scl enable ror40 "bundle install"
+ ---> Running in 64474ac237dc
+Fetching gem metadata from https://rubygems.org/..........
+Installing rake (10.3.2) 
+Installing i18n (0.6.11) 
+Installing json (1.8.3) 
+Installing minitest (5.4.2) 
+Installing thread_safe (0.3.4) 
+Installing tzinfo (1.2.2) 
+Installing activesupport (4.1.7) 
+Installing builder (3.2.2) 
+Installing activemodel (4.1.7) 
+Installing arel (5.0.1.20140414130214) 
+Installing activerecord (4.1.7) 
+Installing mysql2 (0.3.16) 
+Installing rack (1.5.2) 
+Installing rack-protection (1.5.3) 
+Installing tilt (1.4.1) 
+Installing sinatra (1.4.5) 
+Installing sinatra-activerecord (2.0.3) 
+Using bundler (1.3.5) 
+Your bundle is complete!
+Use `bundle show [gemname]` to see where a bundled gem is installed.
+ ---> 58379d7419c1
+Removing intermediate container 64474ac237dc
+Step 7 : CMD scl enable ror40 ./run.sh
+ ---> Running in 7a2656150cd7
+ ---> bf53b16a553e
+Removing intermediate container 7a2656150cd7
+Step 8 : USER root
+ ---> Running in da9b1cd18f74
+ ---> e5142c83d875
+Removing intermediate container da9b1cd18f74
+Step 9 : RUN chmod og+rw /opt/app-root/src/db
+ ---> Running in 628518e1d745
+ ---> dce861caea99
+Removing intermediate container 628518e1d745
+Step 10 : USER default
+ ---> Running in 4e3fbeddff07
+ ---> 742c25a9cf9d
+Removing intermediate container 4e3fbeddff07
+Successfully built 742c25a9cf9d
+DEBUG:
+DEBUG: Output docker info
+DEBUG: ------------------------
+Containers: 109
+Images: 175
+Storage Driver: devicemapper
+ Pool Name: docker-253:3-524002-pool
+ Pool Blocksize: 65.54 kB
+ Backing Filesystem: extfs
+ Data file: /dev/loop0
+ Metadata file: /dev/loop1
+ Data Space Used: 4.689 GB
+ Data Space Total: 107.4 GB
+ Data Space Available: 37.3 GB
+ Metadata Space Used: 12.81 MB
+ Metadata Space Total: 2.147 GB
+ Metadata Space Available: 2.135 GB
+ Udev Sync Supported: true
+ Deferred Removal Enabled: false
+ Data loop file: /var/lib/docker/devicemapper/devicemapper/data
+ Metadata loop file: /var/lib/docker/devicemapper/devicemapper/metadata
+ Library Version: 1.02.93-RHEL7 (2015-01-28)
+Execution Driver: native-0.2
+Logging Driver: json-file
+Kernel Version: 3.10.0-229.11.1.el7.x86_64
+Operating System: CentOS Linux 7 (Core)
+CPUs: 2
+Total Memory: 1.797 GiB
+Name: localhost.localdomain
+ID: DKBI:VVNI:SCMJ:UA4L:5DNG:76WM:3Q4G:47BA:NTNO:4Z76:JEYT:ZF22
+DEBUG:
+The push refers to a repository [172.30.194.91:5000/default/ruby-hello-world] (len: 1)
+742c25a9cf9d: Buffering to Disk
+742c25a9cf9d: Image successfully pushed
+742c25a9cf9d: Image already exists
+dce861caea99: Buffering to Disk
+dce861caea99: Image successfully pushed
+e5142c83d875: Buffering to Disk
+e5142c83d875: Image successfully pushed
+bf53b16a553e: Buffering to Disk
+bf53b16a553e: Image successfully pushed
+58379d7419c1: Buffering to Disk
+58379d7419c1: Image successfully pushed
+e052a81ec07b: Buffering to Disk
+e052a81ec07b: Image successfully pushed
+88868ecf10ed: Image already exists
+61259954a32e: Image already exists
+a15700324907: Image already exists
+dbafbd6913ff: Image already exists
+48fc42bce0ac: Buffering to Disk
+48fc42bce0ac: Image successfully pushed
+6860f64efcab: Buffering to Disk
+6860f64efcab: Image successfully pushed
+7322fbe74aa5: Image already exists
+c852f6d61e65: Buffering to Disk
+c852f6d61e65: Image successfully pushed
+f1b10cd84249: Image already exists
+Digest: sha256:c67bb3196c393b657325f59126e74a99171ea57e53b9760501b43a4e3e5c3265
